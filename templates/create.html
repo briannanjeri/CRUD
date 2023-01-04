@@ -1,0 +1,93 @@
+{% extends 'master.html' %} 
+{% include 'header.html' %} 
+
+{% block title %} create student {% endblock %}
+
+
+{% block body %}
+
+<div class="container">
+    <form method="post" name="validate" action="" onsubmit="return validate_email()">
+
+        <table class="table">
+
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" name="first_name" class="form_control"></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" name="last_name" class="form_control"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="email" class="form_control"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="password" class="form_control"></td>
+            </tr>
+            <tr>
+                <td>gender</td>
+                <td>
+                Male:<input type="radio" name="gender" value="male">
+                Female:<input type="radio" name="gender" value="female">
+               </td>
+            </tr>
+            <tr>
+                <td>hobbies</td>
+                <td>
+                   <input type="checkbox" name="hobbies" value="cricket">  cricket
+                     <input type="checkbox" name="hobbies" value="movie"> Movie
+   
+                </td>
+            </tr>
+            <tr>
+                <td>country</td>
+                <td>
+                    <select name="country" class="form_control">
+                    <option value="Uganda">Uganda</option>
+                    <option value="Kenya">Kenya</option>
+                    <option value="Tanzania">Tanzania</option>
+                    </select>
+
+                </td>
+            </tr>
+
+           <tr>
+            <td colspan="2">
+                <input type="submit" name="submit" value="submit" class="btn btn-warning">
+                
+            </td>
+           </tr>
+
+        </table>
+
+
+
+    </form>
+
+</div>
+
+<script>
+ function validate_email(){
+   
+    var x=document.validate.email.value;
+    var atposition=x.indexOf("@");
+    var dotpostion=x.lastIndexOf(".");
+    
+    if (atposition<1 || dotpostion<atposition+2 || dotpostion+2>=x.length)
+        alert("please enter a valid email address")
+        return false
+
+
+
+ }
+
+
+
+</script>
+
+
+
+{% endblock %}
